@@ -1,8 +1,13 @@
 {
   "name": "vite-plugin-unpkg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Vite plugin that allows you to use unpkg URLs in your code",
-  "module": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "author": {
     "name": "Ben Allfree",
     "url": "https://x.com/benallfree"
