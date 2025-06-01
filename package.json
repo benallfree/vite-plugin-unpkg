@@ -1,0 +1,57 @@
+{
+  "name": "vite-plugin-unpkg",
+  "version": "0.0.1",
+  "description": "A Vite plugin that allows you to use unpkg URLs in your code",
+  "module": "src/index.ts",
+  "author": {
+    "name": "Ben Allfree",
+    "url": "https://x.com/benallfree"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benallfree/vite-plugin-unpkg"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "unpkg",
+    "workspaces"
+  ],
+  "type": "module",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4",
+    "@types/bun": "latest",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "tsup": "^8.5.0",
+    "vite": "^6.3.5"
+  },
+  "scripts": {
+    "build": "tsup ",
+    "dev": "tsup --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ],
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "avoid",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "bracketSpacing": true
+  },
+  "dependencies": {
+    "find-workspaces": "^0.3.1",
+    "resolve.exports": "^2.0.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
