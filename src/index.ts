@@ -45,7 +45,6 @@ export const unpkg = (config: UnpkgConfig) => {
         const subpath = subpathParts.length > 0 ? `./${subpathParts.join('/')}` : '.'
 
         if (isWorkspacePackage(packageName)) {
-          console.log('isWorkspacePackage', packageName)
           // Find the workspace for this package
           const workspace = workspaces?.find(ws => ws.package.name === packageName)
           if (workspace) {
