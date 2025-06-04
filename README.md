@@ -31,7 +31,15 @@ export default defineConfig(({ mode }) => ({
 1. **Transform phase**: During development, the plugin scans your code for unpkg URLs
 2. **Package detection**: It checks if the package name matches any workspace package in your monorepo
 3. **URL replacement**: Replaces `https://unpkg.com/<package>` with `/@unpkg/<package>` for local packages only
-4. **Local serving**: Sets up a dev server middleware to serve the actual files from your workspace using `resolve.exports`
+4. **Local serving**: Sets up a dev server middleware to serve the actual files from your workspace
+5. **MIME type resolution**: Automatically sets correct `Content-Type` headers based on file extensions (JS, CSS, JSON, images, fonts, etc.)
+
+## Features
+
+- **Direct file serving**: Tries to serve files directly from workspace locations first
+- **Export resolution fallback**: Uses `resolve.exports` for complex package export mappings
+- **Proper MIME types**: Automatically detects and serves files with correct Content-Type headers
+- **Multiple file format support**: Handles JavaScript, CSS, JSON, HTML, images, fonts, and more
 
 ## Example
 
