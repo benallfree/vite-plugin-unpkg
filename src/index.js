@@ -1,5 +1,5 @@
 import { findWorkspaces } from 'find-workspaces'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync, readFileSync, statSync } from 'fs'
 import { resolve } from 'path'
 import { resolve as resolveExports } from 'resolve.exports'
 
@@ -95,7 +95,7 @@ export const unpkg = config => {
             // First try direct file path
             const directFilePath = resolve(workspace.location, subpath)
 
-            if (existsSync(directFilePath)) {
+            if (existsSync(directFilePath) && statSync(directFilePath).isFile()) {
               try {
                 const content = readFileSync(directFilePath, 'utf-8')
                 res.setHeader('Content-Type', getMimeType(directFilePath))
