@@ -1,5 +1,13 @@
 # vite-plugin-unpkg
 
+## 0.0.5
+
+### Patch Changes
+
+- e879fb4: Look up file type based on mime type
+- 0dcf931: Add real redirect support
+- 0dcf931: Convert to JS
+
 ## 0.0.4
 
 ### Patch Changes

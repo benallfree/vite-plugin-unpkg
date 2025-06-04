@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-unpkg",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Vite plugin that allows you to use unpkg URLs in your code",
   "exports": {
     ".": {
