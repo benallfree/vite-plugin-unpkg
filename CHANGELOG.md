@@ -1,5 +1,12 @@
 # vite-plugin-unpkg
 
+## 0.0.6
+
+### Patch Changes
+
+- 35b4477: Remove debugging info
+- 25bfb36: Fix: Add path check for file existence
+
 ## 0.0.5
 
 ### Patch Changes
