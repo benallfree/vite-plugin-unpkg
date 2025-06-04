@@ -92,8 +92,6 @@ export const unpkg = config => {
           // Find the workspace for this package
           const workspace = workspaces?.find(ws => ws.package.name === packageName)
           if (workspace) {
-            console.log(workspace, subpath)
-
             // First try direct file path
             const directFilePath = resolve(workspace.location, subpath)
 
@@ -115,7 +113,6 @@ export const unpkg = config => {
                 const resolvedPath = resolved[0].replace(/^\.\//, '') // Remove leading ./
                 const currentPath = subpathParts.join('/')
 
-                console.log({ resolvedPath, currentPath })
                 // If the resolved path is different from the current path, redirect
                 if (resolvedPath !== currentPath) {
                   res.writeHead(302, { Location: `/@unpkg/${packageName}/${resolvedPath}` })
