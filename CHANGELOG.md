@@ -1,5 +1,11 @@
 # vite-plugin-unpkg
 
+## 0.1.0
+
+### Minor Changes
+
+- 55b38a4: Invert package naming (/@unpkg prefix in src)
+
 ## 0.0.6
 
 ### Patch Changes
