@@ -66,19 +66,13 @@ export const unpkg = config => {
   const plugun = {
     name: 'unpkg',
 
-    // Transform any imported file that contains unpkg URLs
     transform(code, id) {
-      if (mode === 'development' && code.includes('https://unpkg.com')) {
-        // Only replace URLs for workspace packages
-        return code.replace(/https:\/\/unpkg\.com\/([^\/\s"']+)/g, (match, packageName) => {
-          if (isWorkspacePackage(packageName)) {
-            return `/@unpkg/${packageName}`
-          }
-          return match // Don't replace non-workspace packages
-        })
-      }
-      return null
+      if (mode === 'development') return null
+
+      // Transform /@unpkg/ imports to unpkg URLs
+      return code.replace(/['"]\/@unpkg\/([^'"]+)['"]/g, '"https://unpkg.com/$1"')
     },
+
     configureServer(server) {
       if (mode !== 'development') return
 
@@ -128,7 +122,10 @@ export const unpkg = config => {
                 return
               }
             } catch (error) {
-              console.warn(`Failed to resolve ${packageName}${subpath}:`, error)
+              console.warn(`Failed to resolve ${packageName}${subpath}:`)
+              res.statusCode = 404
+              res.end('Not found')
+              return
             }
           }
         }
